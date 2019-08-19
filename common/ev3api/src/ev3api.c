@@ -57,3 +57,8 @@ void *__dso_handle __attribute__((weak))=0;
  * See 'http://wiki.osdev.org/Calling_Global_Constructors' for details of '.fini_array' and '_fini' in ARM.
  */
 void __attribute__((weak)) _fini() {}
+
+void ev3_wait(unsigned int milliSec) {
+    ER ercd = dly_tsk(milliSec * 1000U);
+    assert(ercd == E_OK);
+}
